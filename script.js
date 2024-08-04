@@ -10,16 +10,21 @@ const tableId=document.getElementById('table')
 
 outputarray=[]
 count=0
-window.addEventListener('load',()=>{
+window.addEventListener('load',def)
+window.addEventListener('click',def)
+
+function def(){
     row= document.createElement('row')
     td=document.createElement('td')
     td.innerText="You have 0 employees added"
-    row.appendChild(td)
+   
     if(outputarray.length==0){
         table.innerHTML=''
+        row.appendChild(td)
         table.appendChild(row)
     }
-})
+}
+
 submit.addEventListener("click", () =>
 {   console.log("submitted");
     nameval= nam.value 
