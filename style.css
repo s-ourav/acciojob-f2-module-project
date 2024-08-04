@@ -2,10 +2,11 @@ body{
     color: antiquewhite;
 }
 #background{
-    /* display: flex; */
+    display: flex;
+    flex-direction: column;
     background-color: black;
     color:aliceblue;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     height: 100vh;
     width: 100vw;
 }
@@ -20,27 +21,27 @@ input{
     width: 200px;
 }
 
-h2{
+#heading{
     margin: 50px;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     width: 200px;
     height: 30px;
     font-family:'Times New Roman', Times, serif;
     font-weight: lighter;
-    border: 1px solid white;
+    /* border: 1px solid white; */
 }
 form{
     display: flex; 
     box-sizing: border-box;
     margin-top: 80px;
     padding: 50px;
-    border: 1px solid white;
+    /* border: 1px solid white; */
     height: 100px;
     width:100vw;
     align-items: center;
     justify-content:space-between;
     align-items:center;
-    border: 1px solid white;
+    /* border: 1px solid white; */
 
 }
 #msg{
@@ -50,7 +51,9 @@ form{
 .error{
     color: red;
 }
-
+.success{
+    color: green;
+}
 .delButton{
     background-color: white;
     color: black;

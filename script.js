@@ -6,6 +6,8 @@ const submit=document.getElementById('submit');
 const msgb=document.getElementById('msg');
 const output =document .getElementById('output')
 const table=document.getElementsByTagName('table')[0]
+const tableId=document.getElementById('table')
+
 outputarray=[]
 count=0
 
@@ -23,19 +25,33 @@ submit.addEventListener("click", () =>
         msgb.appendChild(msg)
     }
     else{
-       
+        const msg=document.createElement('h3')
+        msg.innerText="Success : Employee Added";
+        msg.className="success"
+        msgb.innerHTML=''
+        msgb.appendChild(msg)
+        
         count++
-        outputarray.push({"id":count,"name":nameval,"age":ageval,"prof":profval, "buttid" :count})
+        outputarray.push({"id":count,"name":nameval,"age":ageval,"prof":profval})
+        button=document.createElement('button')
+        button.id=outputarray[count-1].id
+        button.innerText="Delete User" + button.id
+        button.className="delButton"
+        outputarray[count-1].button = button
+        button.addEventListener( "click" , getParentRowg)
         displayUpdatedTable()    
     }
 })
-
+    function getParentRow (){
+        var parentRow = button.closest('tr');
+        console.log(parentRow)
+    }
     function displayUpdatedTable(){
         table.innerHTML=''
         for(obj of outputarray){
             console.log(obj)
             row=document.createElement('tr')
-           
+            row.id=obj.id
 
             idd=document.createElement('td')
             idd.innerText=obj.id
@@ -54,16 +70,17 @@ submit.addEventListener("click", () =>
             row.appendChild(profd)
             
             delrow=document.createElement('td')
-            button=document.createElement('button')
-            button.id=obj.id
-            button.innerText="Delete User" + button.id
-            button.className="delButton"
-           
-            delrow.appendChild(button)
+            // button=document.createElement('button')
+            // button.id=obj.id
+            // button.innerText="Delete User" + button.id
+            // button.className="delButton"
+            delrow.appendChild(obj.button)
 
             row.appendChild(delrow)
             row.className='tr'
+            
             table.appendChild(row)
+            // console.log(row)
         }
         
     }
