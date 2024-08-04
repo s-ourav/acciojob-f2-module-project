@@ -10,7 +10,16 @@ const tableId=document.getElementById('table')
 
 outputarray=[]
 count=0
-
+window.addEventListener('load',()=>{
+    row= document.createElement('row')
+    td=document.createElement('td')
+    td.innerText="You have 0 employees added"
+    row.appendChild(td)
+    if(outputarray.length==0){
+        table.innerHTML=''
+        table.appendChild(row)
+    }
+})
 submit.addEventListener("click", () =>
 {   console.log("submitted");
     nameval= nam.value 
@@ -44,8 +53,7 @@ submit.addEventListener("click", () =>
 })
     function deleteRow (e){
         curRowId=e.target.id
-        outputarray.splice(curRowId-1,1)
-        console.log(outputarray)
+        outputarray = outputarray.filter((obj) => Number(obj.id) != Number(e.target.id));
         displayUpdatedTable()
     }
 
