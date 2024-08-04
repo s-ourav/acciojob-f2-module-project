@@ -38,14 +38,17 @@ submit.addEventListener("click", () =>
         button.innerText="Delete User" + button.id
         button.className="delButton"
         outputarray[count-1].button = button
-        button.addEventListener( "click" , getParentRowg)
+        button.addEventListener( "click" ,deleteRow )
         displayUpdatedTable()    
     }
 })
-    function getParentRow (){
-        var parentRow = button.closest('tr');
-        console.log(parentRow)
+    function deleteRow (e){
+        curRowId=e.target.id
+        outputarray.splice(curRowId-1,1)
+        console.log(outputarray)
+        displayUpdatedTable()
     }
+
     function displayUpdatedTable(){
         table.innerHTML=''
         for(obj of outputarray){
